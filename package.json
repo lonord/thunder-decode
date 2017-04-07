@@ -1,0 +1,27 @@
+{
+  "name": "thunder-decode",
+  "version": "0.0.1",
+  "description": "A cli tool to decode url start with thunder://",
+  "main": "lib/decoder.js",
+  "bin": {
+    "thunder-decode": "bin/thunder-decode"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "thunder",
+    "url",
+    "decode"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lonord/thunder-decode.git"
+  },
+  "author": "Loy B. <lonord@qq.com>",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^2.9.0",
+    "copy-paste": "^1.3.0"
+  }
+}

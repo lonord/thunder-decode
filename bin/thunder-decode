@@ -1,0 +1,29 @@
+#!/usr/bin/env node
+const program = require('commander');
+const ncp = require("copy-paste");
+const package = require('../package.json');
+const decode = require('../lib/decoder');
+
+program
+	.version(package.version)
+	.usage('<url>')
+	.description('decode url start with thunder://')
+	.parse(process.argv);
+
+if (program.args.length == 0) {
+	console.error('   error: url required');
+	process.exit(1);
+}
+
+let result;
+try {
+	result = decode(program.args[0]);
+}
+catch (e) {
+	console.error(e.message);
+}
+console.log(`\nResult:\n\n   \x1B[4m${result}\x1B[0m\n`);
+
+ncp.copy(result, () => {
+	console.log(`   \x1B[32mThe url has been copied to your clipboard!\x1B[0m\n`);
+});
